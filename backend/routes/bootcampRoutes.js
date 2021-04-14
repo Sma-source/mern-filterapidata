@@ -14,6 +14,6 @@ router
 router
   .route("/:id")
   .put(bootcampControllers.updateBootcampById)
-  .delete(bootcampControllers.updateBootcampById);
+  .delete(bootcampControllers.deleteBootcampById);
 
 module.exports = router;
