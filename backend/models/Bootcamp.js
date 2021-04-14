@@ -8,7 +8,7 @@ const bootcampSchema = new mongoose.Schema({
   },
   rating: {
     type: Number,
-    required: [true.valueOf, "Please provid a rating"],
+    required: [true, "Please provid a rating"],
   },
   description: {
     type: String,
