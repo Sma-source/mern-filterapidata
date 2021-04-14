@@ -2,7 +2,7 @@ exports.getAllBootcamps = (req, res, next) => {
   res.send("Get all bootcamps route");
 };
 
-exports.getAllBootcamps = (req, res, next) => {
+exports.createNewBootcamp = (req, res, next) => {
   res.send("Create new bootcamp route");
 };
 
