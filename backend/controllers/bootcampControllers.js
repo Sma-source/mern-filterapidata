@@ -11,6 +11,13 @@ exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
 });
 
 exports.createNewBootcamp = asyncHandler(async (req, res, next) => {
+  const bootcamp = await Bootcamp.create(req.body);
+
+  res.status(201).json({
+    success: true,
+    data: bootcamp,
+  });
+
   res.send("Create new bootcamp route");
 });
 
