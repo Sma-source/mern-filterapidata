@@ -19,3 +19,7 @@ const bootcampSchema = new mongoose.Schema({
     required: [true, "Please provid a price"],
   },
 });
+
+const Bootcamp = mongoose.model("Bootcamp", bootcampSchema);
+
+module.exports = Bootcamp;
