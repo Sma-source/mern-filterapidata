@@ -17,8 +17,6 @@ exports.createNewBootcamp = asyncHandler(async (req, res, next) => {
     success: true,
     data: bootcamp,
   });
-
-  res.send("Create new bootcamp route");
 });
 
 exports.updateBootcampById = asyncHandler(async (req, res, next) => {
