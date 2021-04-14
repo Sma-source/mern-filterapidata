@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use("/ap1/v1/bootcamps", require("./routes/bootcampRoutes"));
+app.use("/api/v1/bootcamps", require("./routes/bootcampRoutes"));
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
