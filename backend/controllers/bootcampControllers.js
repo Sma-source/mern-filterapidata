@@ -1,3 +1,5 @@
+const Bootcamp = require("../models/Bootcamp");
+
 exports.getAllBootcamps = (req, res, next) => {
   res.send("Get all bootcamps route");
 };
