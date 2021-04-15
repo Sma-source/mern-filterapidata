@@ -30,6 +30,8 @@ exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
     query = query.sort("-price");
   }
 
+  const bootcamps = await query;
+
   res.status(200).json({
     success: true,
     data: bootcamps,
