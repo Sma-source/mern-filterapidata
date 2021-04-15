@@ -18,6 +18,18 @@ exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
     (match) => `$${match}`
   );
 
+  query = Bootcamp.find(JSON.parse(queryStr));
+
+  if (req.query.sort) {
+    const sortByArr = req.query.sort.split(",");
+
+    const sortByStr = sortByArr.join(" ");
+
+    query = query.sort(sortByStr);
+  } else {
+    query = query.sort("-price");
+  }
+
   res.status(200).json({
     success: true,
     data: bootcamps,
