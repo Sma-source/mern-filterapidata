@@ -11,6 +11,8 @@ exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
 
   removeFields.forEach((val) => delete reqQuery[val]);
 
+  let queryStr = JSON.stringify(reqQuery);
+
   res.status(200).json({
     success: true,
     data: bootcamps,
