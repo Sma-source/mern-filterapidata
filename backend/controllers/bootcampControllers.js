@@ -5,6 +5,8 @@ const ErrorResponse = require("../utils/errorResponse");
 exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
   let query;
 
+  const reqQuery = { ...req.query };
+
   res.status(200).json({
     success: true,
     data: bootcamps,
