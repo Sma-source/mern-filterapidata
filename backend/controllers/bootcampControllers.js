@@ -9,6 +9,8 @@ exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
 
   const removeFields = ["sort"];
 
+  removeFields.forEach((val) => delete reqQuery[val]);
+
   res.status(200).json({
     success: true,
     data: bootcamps,
