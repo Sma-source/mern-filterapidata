@@ -13,6 +13,11 @@ exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
 
   let queryStr = JSON.stringify(reqQuery);
 
+  queryStr = queryStr.replace(
+    /\b(gt|gte|lt|lte|in)\b/g,
+    (match) => `$${match}`
+  );
+
   res.status(200).json({
     success: true,
     data: bootcamps,
