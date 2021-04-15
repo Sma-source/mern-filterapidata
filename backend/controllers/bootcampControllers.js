@@ -7,6 +7,8 @@ exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
 
   const reqQuery = { ...req.query };
 
+  const removeFields = ["sort"];
+
   res.status(200).json({
     success: true,
     data: bootcamps,
