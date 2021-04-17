@@ -1,10 +1,17 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import BootcampsPage from "./pages/BootcampsPage";
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      {/* Navabar */}
+      <Router>
+        <Switch>
+          <Route exact path="/" component={BootcampsPage} />
+        </Switch>
+      </Router>
+    </>
   );
 };
 
