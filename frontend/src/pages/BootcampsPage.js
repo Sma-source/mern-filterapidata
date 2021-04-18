@@ -6,6 +6,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import axios from "axios";
+import BootcampCard from "../components/BootcampCard";
 
 const useStyles = makeStyles({
   root: {
@@ -37,7 +38,7 @@ const BootcampsPage = () => {
           url: `/api/v1/bootcamps`,
           cancelToken: new axios.CancelToken((c) => (cancel = c)),
         });
-
+        console.log(data);
         setBootcamps(data.data);
         setLoading(false);
       } catch (error) {
@@ -58,11 +59,11 @@ const BootcampsPage = () => {
             <CircularProgress size="3rem" thickness={5} />
           </div>
         ) : (
-          bootcamps.map((bootcamp) => {
+          bootcamps.map((bootcamp) => (
             <Grid item key={bootcamp._id} xs={12} sm={6} md={4} lg={3}>
               <BootcampCard bootcamp={bootcamp} />
-            </Grid>;
-          })
+            </Grid>
+          ))
         )}
       </Grid>
     </Container>
