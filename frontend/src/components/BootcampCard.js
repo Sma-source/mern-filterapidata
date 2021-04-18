@@ -1,5 +1,5 @@
 import { Avatar, CardContent, CardHeader, Typography } from "@material-ui/core";
-import React from "react";
+import Rating from "@material-ui/lab/Rating";
 
 const BootcampCard = ({ bootcamp }) => {
   return (
@@ -15,6 +15,13 @@ const BootcampCard = ({ bootcamp }) => {
           {" "}
           {bootcamp.price}{" "}
         </Typography>
+        <Rating
+          value={bootcamp.rating}
+          readOnly
+          name={bootcamp.name}
+          size="small"
+          precision={0.5}
+        />
       </CardContent>
     </div>
   );
