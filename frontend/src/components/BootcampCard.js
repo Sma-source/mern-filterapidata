@@ -1,4 +1,11 @@
-import { Avatar, CardContent, CardHeader, Typography } from "@material-ui/core";
+import {
+  Avatar,
+  Button,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Typography,
+} from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 
 const BootcampCard = ({ bootcamp }) => {
@@ -23,6 +30,15 @@ const BootcampCard = ({ bootcamp }) => {
           precision={0.5}
         />
       </CardContent>
+
+      <CardActions>
+        <Button variant="contained" size="small" color="primary">
+          Book Now
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
     </div>
   );
 };
