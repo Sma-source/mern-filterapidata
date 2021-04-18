@@ -8,6 +8,13 @@ import {
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 
+// Format Price
+const formatter = new Intl.NumberFormat("fr-FR", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 2,
+});
+
 const BootcampCard = ({ bootcamp }) => {
   return (
     <div>
@@ -20,7 +27,7 @@ const BootcampCard = ({ bootcamp }) => {
 
         <Typography variant="h6" gutterBottom>
           {" "}
-          {bootcamp.price}{" "}
+          {formatter.format(bootcamp.price)}{" "}
         </Typography>
         <Rating
           value={bootcamp.rating}
