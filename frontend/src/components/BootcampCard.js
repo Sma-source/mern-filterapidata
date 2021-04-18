@@ -10,6 +10,11 @@ const BootcampCard = ({ bootcamp }) => {
       />
       <CardContent>
         <Typography variant="caption"> {bootcamp.description} </Typography>
+
+        <Typography variant="h6" gutterBottom>
+          {" "}
+          {bootcamp.price}{" "}
+        </Typography>
       </CardContent>
     </div>
   );
