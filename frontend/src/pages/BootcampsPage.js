@@ -110,6 +110,10 @@ const BootcampsPage = () => {
     buildRangeFilter(newValue);
   };
 
+  const onTextfieldCommitHandler = () => {
+    buildRangeFilter(priceRange);
+  };
+
   const buildRangeFilter = (newValue) => {
     const urlFilter = `?price[gte]=${newValue[0]}&price[lte]=${newValue[1]}`;
     setFilter(urlFilter);
@@ -143,6 +147,7 @@ const BootcampsPage = () => {
                   disabled={loading}
                   value={priceRange[0]}
                   onChange={(e) => handlePriceInputChange(e, "lower")}
+                  onBlur={onTextfieldCommitHandler}
                 />
 
                 <TextField
@@ -154,6 +159,7 @@ const BootcampsPage = () => {
                   disabled={loading}
                   value={priceRange[1]}
                   onChange={(e) => handlePriceInputChange(e, "upper")}
+                  onBlur={onTextfieldCommitHandler}
                 />
               </div>
             </div>
