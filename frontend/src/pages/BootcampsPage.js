@@ -78,6 +78,7 @@ const BootcampsPage = () => {
         setBootcamps(data.data);
         setLoading(false);
       } catch (error) {
+        if (axios.isCancel(error)) return;
         console.log(error.response.data);
       }
     };
