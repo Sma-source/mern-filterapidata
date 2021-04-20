@@ -83,6 +83,8 @@ const BootcampsPage = () => {
     };
 
     fetchData();
+
+    return () => cancel();
   }, [filter, params]);
 
   const onSliderCommitHandler = (e, newValue) => {
