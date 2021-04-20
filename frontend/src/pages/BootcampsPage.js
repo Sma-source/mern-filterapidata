@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   CircularProgress,
   Container,
@@ -44,6 +44,7 @@ const BootcampsPage = () => {
   // Material UI Styles
   const classes = useStyles();
   const history = useHistory();
+  const location = useLocation();
   // Component state
   const [bootcamps, setBootcamps] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -60,6 +61,9 @@ const BootcampsPage = () => {
       setLoading(true);
       try {
         let query;
+
+        if (condition) {
+        }
         const { data } = await axios({
           method: "GET",
           url: `/api/v1/bootcamps`,
