@@ -78,7 +78,12 @@ const BootcampsPage = () => {
           <Grid item xs={12} sm={6}>
             <Typography gutterBottom>Filters</Typography>
             <div className={classes.filters}>
-              <Slider min={0} max={sliderMax} value={priceRange} />
+              <Slider
+                min={0}
+                max={sliderMax}
+                value={priceRange}
+                valueLabelDisplay="auto"
+              />
               <div className={classes.priceRangeInputs}>
                 <TextField
                   size="small"
