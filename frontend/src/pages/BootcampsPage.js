@@ -88,6 +88,24 @@ const BootcampsPage = () => {
     return () => cancel();
   }, [filter, params]);
 
+  const handlePriceInputChange = (e, type) => {
+    let newRange;
+
+    if (type === "lower") {
+      newRange = [...priceRange];
+      newRange[0] = Number(e.target.value);
+
+      setPriceRange(newRange);
+    }
+
+    if (type === "upper") {
+      newRange = [...priceRange];
+      newRange[1] = Number(e.target.value);
+
+      setPriceRange(newRange);
+    }
+  };
+
   const onSliderCommitHandler = (e, newValue) => {
     buildRangeFilter(newValue);
   };
@@ -97,6 +115,7 @@ const BootcampsPage = () => {
     setFilter(urlFilter);
     history.push(urlFilter);
   };
+
   return (
     <Container className={classes.root}>
       {/* Filtering and Sorting Section */}
@@ -123,6 +142,7 @@ const BootcampsPage = () => {
                   type="number"
                   disabled={loading}
                   value={priceRange[0]}
+                  onChange={(e) => handlePriceInputChange(e, "lower")}
                 />
 
                 <TextField
@@ -133,6 +153,7 @@ const BootcampsPage = () => {
                   type="number"
                   disabled={loading}
                   value={priceRange[1]}
+                  onChange={(e) => handlePriceInputChange(e, "upper")}
                 />
               </div>
             </div>
