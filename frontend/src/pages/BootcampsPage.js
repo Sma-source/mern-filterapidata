@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import {
   CircularProgress,
   Container,
@@ -49,6 +50,8 @@ const BootcampsPage = () => {
   const [sliderMax, setSliderMax] = useState(1000);
   const [priceRange, setPriceRange] = useState([25, 75]);
 
+  const [filter, setFilter] = usestate("");
+
   // Side Effects
   useEffect(() => {
     let cancel;
@@ -69,7 +72,16 @@ const BootcampsPage = () => {
     };
 
     fetchData();
-  }, []);
+  }, [filter]);
+
+  const onSliderCommitHandler = (e, newValue) => {
+    buildRangeFilter(newValue);
+  };
+
+  const buildRangeFilter = (newValue) => {
+    const urlFilter = `?price[gte]=${newValue[0]}&price[lte]=${newValue[1]}`;
+    setFilter(urlFilter);
+  };
   return (
     <Container className={classes.root}>
       {/* Filtering and Sorting Section */}
@@ -84,6 +96,7 @@ const BootcampsPage = () => {
                 value={priceRange}
                 valueLabelDisplay="auto"
                 onChange={(e, newValue) => setPriceRange(newValue)}
+                onChangeCommitted={onSliderCommitHandler}
               />
               <div className={classes.priceRangeInputs}>
                 <TextField
