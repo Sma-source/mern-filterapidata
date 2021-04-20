@@ -53,8 +53,25 @@ const BootcampsPage = () => {
 
   const [sliderMax, setSliderMax] = useState(1000);
   const [priceRange, setPriceRange] = useState([25, 75]);
+  const [priceOrder, setPriceOrder] = useState("descending");
 
   const [filter, setFilter] = useState("");
+  const [sorting, setSorting] = useState("");
+
+  const updateUIValues = (uiValues) => {
+    setSliderMax(uiValues.maxPrice);
+
+    if (uiValues.filtering.price) {
+      let priceFilter = uiValues.filtering.price;
+
+      setPriceRange([Number(priceFilter.gte), Number(priceFilter.lte)]);
+    }
+
+    if (uiValues.sorting.price) {
+      let priceSort = uiValues.sorting.price;
+      setPriceOrder(priceSort);
+    }
+  };
 
   // Side Effects
   useEffect(() => {
@@ -77,6 +94,7 @@ const BootcampsPage = () => {
         console.log(data);
         setBootcamps(data.data);
         setLoading(false);
+        updateUIValues(data.uiValues);
       } catch (error) {
         if (axios.isCancel(error)) return;
         console.log(error.response.data);
@@ -118,6 +136,16 @@ const BootcampsPage = () => {
     const urlFilter = `?price[gte]=${newValue[0]}&price[lte]=${newValue[1]}`;
     setFilter(urlFilter);
     history.push(urlFilter);
+  };
+
+  const handleSortChange = (e) => {
+    setPriceOrder(e.target.value);
+
+    if (e.target.value === "ascending") {
+      setSorting("price");
+    } else if (e.target.value === "descending") {
+      setSorting("-price");
+    }
   };
 
   return (
@@ -168,14 +196,21 @@ const BootcampsPage = () => {
             <Typography gutterBottom>Sort By</Typography>
 
             <FormControl component="fieldset" className={classes.filters}>
-              <RadioGroup aria-label="price-order" name="price-order">
+              <RadioGroup
+                aria-label="price-order"
+                name="price-order"
+                value={priceOrder}
+                onChange={handleSortChange}
+              >
                 <FormControlLabel
+                  value="descending"
                   disabled={loading}
                   control={<Radio />}
                   label="Price: Highest - Lowest"
                 />
 
                 <FormControlLabel
+                  value="ascending"
                   disabled={loading}
                   control={<Radio />}
                   label="Price: Lowest - Highest"
