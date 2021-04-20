@@ -71,7 +71,7 @@ const BootcampsPage = () => {
         }
         const { data } = await axios({
           method: "GET",
-          url: `/api/v1/bootcamps`,
+          url: `/api/v1/bootcamps${query}`,
           cancelToken: new axios.CancelToken((c) => (cancel = c)),
         });
         console.log(data);
