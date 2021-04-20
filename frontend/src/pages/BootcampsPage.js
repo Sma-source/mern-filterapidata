@@ -43,6 +43,7 @@ const useStyles = makeStyles({
 const BootcampsPage = () => {
   // Material UI Styles
   const classes = useStyles();
+  const history = useHistory();
   // Component state
   const [bootcamps, setBootcamps] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -50,7 +51,7 @@ const BootcampsPage = () => {
   const [sliderMax, setSliderMax] = useState(1000);
   const [priceRange, setPriceRange] = useState([25, 75]);
 
-  const [filter, setFilter] = usestate("");
+  const [filter, setFilter] = useState("");
 
   // Side Effects
   useEffect(() => {
@@ -81,6 +82,7 @@ const BootcampsPage = () => {
   const buildRangeFilter = (newValue) => {
     const urlFilter = `?price[gte]=${newValue[0]}&price[lte]=${newValue[1]}`;
     setFilter(urlFilter);
+    history.push(urlFilter);
   };
   return (
     <Container className={classes.root}>
