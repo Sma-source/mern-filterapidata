@@ -57,13 +57,15 @@ exports.getAllBootcamps = asyncHandler(async (req, res, next) => {
 
   const bootcamps = await query;
 
-  const maxPrice = await Bootcamp.find().sort(
-    { price: -1 }.limit(1).select("-_id price")
-  );
+  const maxPrice = await Bootcamp.find()
+    .sort({ price: -1 })
+    .limit(1)
+    .select("-_id price");
 
-  const minPrice = await Bootcamp.find().sort(
-    { price: 1 }.limit(1).select("-_id price")
-  );
+  const minPrice = await Bootcamp.find()
+    .sort({ price: 1 })
+    .limit(1)
+    .select("-_id price");
 
   uiValues.maxPrice = maxPrice[0].price;
   uiValues.minPrice = minPrice[0].price;
