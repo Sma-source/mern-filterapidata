@@ -83,6 +83,7 @@ const BootcampsPage = () => {
                 max={sliderMax}
                 value={priceRange}
                 valueLabelDisplay="auto"
+                onChange={(e, newValue) => setPriceRange(newValue)}
               />
               <div className={classes.priceRangeInputs}>
                 <TextField
