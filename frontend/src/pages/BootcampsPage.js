@@ -86,6 +86,14 @@ const BootcampsPage = () => {
         } else {
           query = filter;
         }
+
+        if (sorting) {
+          if (query.length === 0) {
+            query = `?sort=${sorting}`;
+          } else {
+            query = query + "&sort=" + sorting;
+          }
+        }
         const { data } = await axios({
           method: "GET",
           url: `/api/v1/bootcamps${query}`,
@@ -104,7 +112,7 @@ const BootcampsPage = () => {
     fetchData();
 
     return () => cancel();
-  }, [filter, params]);
+  }, [filter, params, sorting]);
 
   const handlePriceInputChange = (e, type) => {
     let newRange;
