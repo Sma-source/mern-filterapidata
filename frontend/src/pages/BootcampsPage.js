@@ -59,6 +59,7 @@ const BootcampsPage = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
+        let query;
         const { data } = await axios({
           method: "GET",
           url: `/api/v1/bootcamps`,
