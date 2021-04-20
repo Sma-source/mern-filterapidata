@@ -45,6 +45,8 @@ const BootcampsPage = () => {
   const classes = useStyles();
   const history = useHistory();
   const location = useLocation();
+
+  const params = location.search ? location.search : null;
   // Component state
   const [bootcamps, setBootcamps] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -78,7 +80,7 @@ const BootcampsPage = () => {
     };
 
     fetchData();
-  }, [filter]);
+  }, [filter, params]);
 
   const onSliderCommitHandler = (e, newValue) => {
     buildRangeFilter(newValue);
