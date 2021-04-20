@@ -47,6 +47,7 @@ const BootcampsPage = () => {
   const [loading, setLoading] = useState(false);
 
   const [sliderMax, setSliderMax] = useState(1000);
+  const [priceRange, setPriceRange] = useState([25, 75]);
 
   // Side Effects
   useEffect(() => {
@@ -77,7 +78,7 @@ const BootcampsPage = () => {
           <Grid item xs={12} sm={6}>
             <Typography gutterBottom>Filters</Typography>
             <div className={classes.filters}>
-              <Slider min={0} max={sliderMax} />
+              <Slider min={0} max={sliderMax} value={priceRange} />
               <div className={classes.priceRangeInputs}>
                 <TextField
                   size="small"
