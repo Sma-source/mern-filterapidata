@@ -64,7 +64,10 @@ const BootcampsPage = () => {
       try {
         let query;
 
-        if (condition) {
+        if (params && !filter) {
+          query = params;
+        } else {
+          query = filter;
         }
         const { data } = await axios({
           method: "GET",
