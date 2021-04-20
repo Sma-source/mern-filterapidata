@@ -109,6 +109,7 @@ const BootcampsPage = () => {
                 max={sliderMax}
                 value={priceRange}
                 valueLabelDisplay="auto"
+                disabled={loading}
                 onChange={(e, newValue) => setPriceRange(newValue)}
                 onChangeCommitted={onSliderCommitHandler}
               />
