@@ -121,7 +121,7 @@ const BootcampsPage = () => {
                   variant="outlined"
                   type="number"
                   disabled={loading}
-                  value={0}
+                  value={priceRange[0]}
                 />
 
                 <TextField
@@ -131,7 +131,7 @@ const BootcampsPage = () => {
                   variant="outlined"
                   type="number"
                   disabled={loading}
-                  value={75}
+                  value={priceRange[1]}
                 />
               </div>
             </div>
