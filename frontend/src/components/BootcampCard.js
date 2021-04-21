@@ -1,6 +1,7 @@
 import {
   Avatar,
   Button,
+  Card,
   CardActions,
   CardContent,
   CardHeader,
@@ -17,7 +18,7 @@ const formatter = new Intl.NumberFormat("fr-FR", {
 
 const BootcampCard = ({ bootcamp }) => {
   return (
-    <div>
+    <Card>
       <CardHeader
         avatar={<Avatar />}
         title={<Typography variant="h6">{bootcamp.name}</Typography>}
@@ -46,7 +47,7 @@ const BootcampCard = ({ bootcamp }) => {
           Learn More
         </Button>
       </CardActions>
-    </div>
+    </Card>
   );
 };
 
