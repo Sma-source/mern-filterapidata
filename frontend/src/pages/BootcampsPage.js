@@ -53,7 +53,7 @@ const BootcampsPage = () => {
   const [loading, setLoading] = useState(false);
 
   const [sliderMax, setSliderMax] = useState(1000);
-  const [priceRange, setPriceRange] = useState([25, 75]);
+  const [priceRange, setPriceRange] = useState([0, sliderMax]);
   const [priceOrder, setPriceOrder] = useState("descending");
 
   const [filter, setFilter] = useState("");
@@ -155,6 +155,13 @@ const BootcampsPage = () => {
     } else if (e.target.value === "descending") {
       setSorting("-price");
     }
+  };
+
+  const clearAllFilters = (e) => {
+    setFilter("");
+    setSorting("");
+    setPriceRange([0, sliderMax]);
+    history.push("/");
   };
 
   return (
